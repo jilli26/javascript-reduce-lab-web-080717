@@ -16,3 +16,25 @@ const monologueLines = [
   'No.',
   'I am the one who knocks!'
 ];
+
+// Create a new variable called totalBatteries,
+// which is the sum of all of the battery counts
+// in the batteryBatches array.
+// Naturally, use .reduce() for this!
+
+var totalBatteries = batteryBatches.reduce((sum, batch) => sum + batch, 0)
+
+// Create a new variable called wordCountMap that
+// reduces the monologueLines to a map
+// that resembles the output - { '7': 2, '9': 1 } e.g. seven words twice, nine words once
+
+
+var wordCountMap = monologueLines.reduce((obj, sentence) => {
+  let wordCount = sentence.split(' ').length
+  if (!obj[wordCount]) {
+    obj[wordCount] = 0
+  }
+
+  obj[wordCount]++
+  return obj
+}, {})
